@@ -14,6 +14,16 @@ Copy wpaws.py and awstats.conf.tmpl inside /etc/awstats directory
 Copy wpaws.php inside <wordpress-web-rootdir>/wp-content/plugins/wpaws.php
 Copy 1-updatewpaws.sh inside e.g. /etc/cron.daily/ if you want to get updated automatically once per day
 
+USAGE
+-------------
+To update the templates run:
+ python wpaws.py --update-templates
+To update the reports on the wordpress db:
+ python wpaws.py --update-reports
+
+To change the information provided by awstats edit awstats.conf.tmpl to fit your needs
+
+ 
 FEATURES
 -------------
 
