@@ -1,0 +1,17 @@
+#!/bin/sh
+cd /tmp
+#create temporary logfiles splited per domain for awstats use
+/usr/share/doc/awstats/examples/logresolvemerge.pl /home/blogs/logs/NGNXaccess.log /home/blogs/logs/access_log | split-logfile
+
+#update-create new templates for blogs, the template reades from /tmp/{{domain}}.log
+cd /etc/awstats
+python /etc/awstats/wpaws.py --update-templates
+
+#update awstats database using the templates from above
+/usr/share/doc/awstats/examples/awstats_updateall.pl -configdir=/etc/awstats/ -awstatsprog=/usr/lib/cgi-bin/awstats.pl now
+
+#with the awstats db updated we can now generate report and insert them in the database
+python /etc/awstats/wpaws.py --update-reports
+
+#remove the temporary per domain logs
+rm /tmp/*.log
