@@ -1,0 +1,23 @@
+This is an awstats -> wordpress plugin comprised of 2 parts, a php wordpress plugin and a python script that handles the updates.
+
+
+PREREQUISITES
+-------------
+mako
+MySQLdb-python
+awstats
+
+INSTALL
+-------------
+Edit wpaws and change your database settings
+Copy wpaws.py and awstats.conf.tmpl inside /etc/awstats directory
+Copy wpaws.php inside <wordpress-web-rootdir>/wp-content/plugins/wpaws.php
+Copy 1-updatewpaws.sh inside e.g. /etc/cron.daily/ if you want to get updated automatically once per day
+
+FEATURES
+-------------
+
+TODO
+-------------
+
+
