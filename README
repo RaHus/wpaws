@@ -9,6 +9,10 @@ awstats
 
 INSTALL
 -------------
+easy_install mako
+easy_install MySQLdb-python
+sudo apt-get install awstats
+
 Edit wpaws and change your database settings
 Copy wpaws.py and awstats.conf.tmpl inside /etc/awstats directory
 Copy wpaws.php inside <wordpress-web-rootdir>/wp-content/plugins/wpaws.php
@@ -29,5 +33,6 @@ FEATURES
 
 TODO
 -------------
-
+* widgets for public presentation of statistics on the blog
+* Year/Month selection, to view detailed info for the date specified
 
