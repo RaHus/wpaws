@@ -13,16 +13,17 @@ easy_install mako
 easy_install MySQLdb-python
 sudo apt-get install awstats
 
-Edit wpaws and change your database settings
+Edit wpaws.py and change your database settings.
+Edit awstats.conf.tmpl to match your web log format. plus $virtualhost as the first field, to separate the logs correctly with "splitlog" utility
 Copy wpaws.py and awstats.conf.tmpl inside /etc/awstats directory
-Copy wpaws.php inside <wordpress-web-rootdir>/wp-content/plugins/wpaws.php
-Copy 1-updatewpaws.sh inside e.g. /etc/cron.daily/ if you want to get updated automatically once per day
+Copy wpaws.php inside <wordpress-web-rootdir>/wp-content/plugins/wpaws.php, and activate the plugin from the plugins page
+Copy 1-updatewpaws.sh inside e.g. /etc/cron.daily/ if you want to get updated automatically once per day. Make sure tha the script name is alphabetically before logresolve merge, if you rotate your logs every day.
 
 USAGE
 -------------
-To update the templates run:
+To update the templates manually run:
  python wpaws.py --update-templates
-To update the reports on the wordpress db:
+To update the reports manually on the wordpress db:
  python wpaws.py --update-reports
 
 To change the information provided by awstats edit awstats.conf.tmpl to fit your needs
